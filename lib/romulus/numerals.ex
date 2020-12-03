@@ -5,8 +5,17 @@ defmodule Romulus.Numerals do
 
   @doc """
   Converts a numeral to its number correspondant
+
+  ## Examples
+
+    iex>  Romulus.Numerals.to_number("MMXX")
+    2020
+
+    iex> Romulus.Numerals.to_number("")
+    nil
+
   """
-  @spec to_number(String.t()) :: integer()
+  @spec to_number(String.t()) :: integer() | nil
   def to_number("") do
     nil
   end
