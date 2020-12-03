@@ -29,10 +29,10 @@ defmodule Romulus.Numerals do
   @spec validate_numeral(map) :: map
   defp validate_numeral(%{numerals: numerals} = conversion) do
     cond do
-      Regex.match?(~r/[^MCLXVI]/, numerals) ->
+      Regex.match?(~r/[^MDCLXVI]/, numerals) ->
         %{conversion | valid?: false, error: "Invalid characters"}
 
-      Regex.match?(~r/([MCLXVI])\1{3,}/, numerals) ->
+      Regex.match?(~r/([MDCLXVI])\1{3,}/, numerals) ->
         %{conversion | valid?: false, error: "Characters can't repeat more than 3 times"}
 
       true ->
@@ -67,6 +67,7 @@ defmodule Romulus.Numerals do
 
   @spec int_value(String.t()) :: integer()
   defp int_value("M"), do: 1000
+  defp int_value("D"), do: 500
   defp int_value("C"), do: 100
   defp int_value("L"), do: 50
   defp int_value("X"), do: 10

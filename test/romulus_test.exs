@@ -6,6 +6,7 @@ defmodule RomulusTest do
 
   test "Convert numeral to number" do
     assert Numerals.to_number("MCMXCIX") == 1999
+    assert Numerals.to_number("MDCLXXXIV") == 1684
   end
 
   test "Fail if character is repeated more than 3 times" do
